@@ -30,7 +30,7 @@ app.get('/api/morsecode',requireinfo, async(req,res)=>{
     
     surajchandra= morsedata;
     console.log(surajchandra.a)
-    joshi=req.query.text;
+    joshi=req.query.text.toLowerCase();
     let final = await calculation(surajchandra,joshi);
     let final2=final.toString()
     let final3=final2.replace(/,/g," ")
@@ -41,7 +41,9 @@ app.get('/api/morsecode',requireinfo, async(req,res)=>{
 
 const PORT = process.env.PORT || 5000;
   
-app.listen(PORT);
+app.listen(PORT,()=>{
+    console.log("website is live at"+" http://localhost:5000/api/morsecode?text=suraj chandra")
+});
 
 
 
